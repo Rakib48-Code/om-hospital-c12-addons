@@ -49,11 +49,11 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Prescription">
-
+                        <page string="Doctor Prescription">
+                            <field name="doctor_note"/>
                         </page>
                         <page string="Pharmacy">
-
+                            <field name="pharmacy_note"/>
                         </page>
                     </notebook>
                 </sheet>

@@ -21,6 +21,8 @@ class HospitalPatient(models.Model):
     ], string='Age Group', compute='set_age_group')
     image = fields.Binary(string='Image')
     email_id = fields.Char(string='Email', track_visibility='always')
+    doctor_note = fields.Text(string='Doctor Prescription')
+    pharmacy_note = fields.Text(string='Pharmacy')
     appointment_count = fields.Integer(string='Appointments', compute='get_appointment_count')
 
     sl_no = fields.Char(string='Patient ID', required=True, copy=False, readonly=True, default=lambda self: _('New'))
