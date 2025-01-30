@@ -1,4 +1,5 @@
-from odoo import api, fields, models,_
+from odoo import api, fields, models, _
+
 
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
@@ -7,7 +8,7 @@ class HospitalAppointment(models.Model):
     _order = 'id desc'
     _rec_name = 'patient_id'
 
-    name = fields.Char(string='Appointment ID', required=True, copy=False, readonly=True,default=lambda self: _('New'))
+    name = fields.Char(string='Appointment ID', required=True, copy=False, readonly=True, default=lambda self: _('New'))
 
     @api.model
     def create(self, vals):
@@ -16,7 +17,14 @@ class HospitalAppointment(models.Model):
         res = super(HospitalAppointment, self).create(vals)
         return res
 
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('confirm', 'Confirmed'),
+        ('done', 'Done'),
+        ('canceled', 'Canceled')
+    ], 'Status', default='draft',)
+
     patient_id = fields.Many2one('hospital.patient', string='Patient', required=True)
     patient_age = fields.Integer(string='Age', related='patient_id.patient_age')
-    notes = fields.Text(string='Registration Notes',)
+    notes = fields.Text(string='Registration Notes', )
     appointment_date = fields.Date(string='Appointment Date')
