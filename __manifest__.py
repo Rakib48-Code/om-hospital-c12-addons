@@ -16,12 +16,14 @@
         'data/patient_sequence.xml',
         'data/appointment_sequence.xml',
         'data/data_file.xml',
+        'data/data_file.xml',
 
         # views
         'views/menu.xml',
         'views/patient_view.xml',
         'views/appointment_view.xml',
         'views/inherit_sales_module.xml',
+        'views/doctor_view.xml',
 
         # reports
         'reports/paitent_card_template.xml',

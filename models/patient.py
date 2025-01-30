@@ -26,6 +26,9 @@ class HospitalPatient(models.Model):
     doctor_note = fields.Text(string='Doctor Prescription')
     pharmacy_note = fields.Text(string='Pharmacy')
     appointment_count = fields.Integer(string='Appointments', compute='get_appointment_count')
+    active = fields.Boolean('Active', default=True)
+    doctor_id = fields.Many2one('hospital.doctor', string='Doctor')
+    check_up_date = fields.Date(string='Checkup Date')
 
     sl_no = fields.Char(string='Patient ID', required=True, copy=False, readonly=True, default=lambda self: _('New'))
 
