@@ -42,10 +42,12 @@
                         <group>
                             <field name="patient_age"/>
                             <field name="gender"/>
+                            <field name="contact"/>
                         </group>
                         <group>
                             <field name="age_group"/>
                             <field name="email_id"/>
+                            <field name="ref"/>
                         </group>
                     </group>
                     <notebook>
@@ -78,6 +80,8 @@
                 <field name="gender"/>
                 <field name="age_group"/>
                 <field name="email_id"/>
+                <field name="contact"/>
+                <field name="ref"/>
             </tree>
         </field>
     </record>

@@ -11,6 +11,8 @@ class HospitalPatient(models.Model):
 
     patient_name = fields.Char(string='Name', required=True, track_visibility='always')
     patient_age = fields.Integer(string='Age', track_visibility='always')
+    contact = fields.Char(string='Contact')
+    ref = fields.Char(string='Reference')
     gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female'),
