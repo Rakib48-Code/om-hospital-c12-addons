@@ -1,31 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<!--     <template id="report_patient_card">-->
+<!--    <template id="report_patient">-->
 <!--        <t t-call="web.html_container">-->
 <!--            <t t-foreach="docs" t-as="doc">-->
-<!--                <h2>Patient Card</h2>-->
+<!--                <t t-call="web.external_layout">-->
+<!--                    <div class="page">-->
+<!--                        <br/>-->
+<!--                        <br/>-->
+<!--                        <br/>-->
+<!--                        <br/>-->
+<!--                        <div class="oe_structure"/>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-xs-2" style="margin:auto;">-->
+<!--                            </div>-->
+<!--                            <center>-->
+<!--                                <div class="col-xs-8" style="margin:auto;">-->
+<!--                                    <table class="table table-condensed" style="border: 3px solid black !important;">-->
+<!--                                        <tr>-->
+<!--                                            <td width="40%">-->
+<!--                                                <p style="text-align: center; padding-top:10px">-->
+<!--                                                    <img t-if="not doc.image"-->
+<!--                                                         t-att-src="'/web/static/img/preview_standard.png'" height="120"-->
+<!--                                                         border="1" width="120"/>-->
+<!--                                                    <img t-if="doc.image"-->
+<!--                                                         t-att-src="'data:image/png;base64,%s' % to_text(doc.image)" height="120" border="1" width="120"/>-->
+<!--                                                </p>-->
+<!--                                                <p style="text-align:center;">-->
+<!--                                                    <h2><strong><span t-field="doc.patient_name"/></strong></h2>-->
+<!--                                                </p>-->
+<!--                                            </td>-->
+<!--                                            <td width="60%">-->
+<!--                                                <tr>-->
+<!--                                                    <td>-->
+<!--                                                        <p style="text-align:right;"><strong>Age :</strong></p>-->
+<!--                                                        <p style="text-align:right;"><strong>Gender :</strong></p>-->
+<!--                                                        <p style="text-align:right;"><strong>Email :</strong></p>-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        <p style="text-align:left; padding-left:10px;" t-field="doc.patient_age"/>-->
+<!--                                                        <p style="text-align:left; padding-left:10px;" t-field="doc.gender"/>-->
+<!--                                                        <p style="text-align:left; padding-left:10px;" t-field="doc.email_id"/>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    </table>-->
+<!--                                </div>-->
+<!--                            </center>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </t>-->
 <!--            </t>-->
 <!--        </t>-->
 <!--    </template>-->
-
-
-    <template id="report_patient">
+     <template id="report_patient">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-<!--                <t t-call="om_hospital.report_patient_card"/>-->
-                <h2>Create Report</h2>
-                <t t-esc="doc.patient_name"/>
-                <br/>
-                <br/>
-                <br/>
-                <t t-esc="doc.patient_age"/>
-                <br/>
-                <br/>
-                <br/>
-                <t t-esc="doc.gender"/>
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row justify-content-center">
+                            <div class="col-xs-8">
+                                <table class="table table-condensed"
+                                       style="border: 3px solid black !important; width:100%;">
+                                    <tr>
+                                        <td width="40%" style="text-align: center; padding-top:10px;">
+                                            <img t-if="not doc.image"
+                                                 t-att-src="'/web/static/img/preview_standard.png'"
+                                                 height="120" width="120" border="1"/>
+                                            <img t-if="doc.image"
+                                                 t-att-src="'data:image/png;base64,%s' % to_text(doc.image)"
+                                                 height="120" width="120" border="1"/>
+                                            <h2>
+                                                <strong>
+                                                    <span t-field="doc.patient_name"/>
+                                                </strong>
+                                            </h2>
+                                        </td>
+                                        <td width="60%">
+                                            <table style="width:100%;">
+                                                <tr>
+                                                    <td style="text-align:right;">
+                                                        <strong>Age :</strong>
+                                                    </td>
+                                                    <td style="text-align:left; padding-left:10px;">
+                                                        <span t-field="doc.patient_age"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:right;">
+                                                        <strong>Gender :</strong>
+                                                    </td>
+                                                    <td style="text-align:left; padding-left:10px;">
+                                                        <span t-field="doc.gender"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:right;">
+                                                        <strong>Email :</strong>
+                                                    </td>
+                                                    <td style="text-align:left; padding-left:10px;">
+                                                        <span t-field="doc.email_id"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
             </t>
         </t>
     </template>
 
+
 </odoo>
+
+
+

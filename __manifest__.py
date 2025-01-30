@@ -7,7 +7,7 @@
     'sequence': 10,
     'author': 'Rakib Hasan',
     'category': 'Tutorials',
-    'depends': ['mail', 'sale'],
+    'depends': ['mail', 'sale',],
     'data': [
         # security
         'security/ir.model.access.csv',
