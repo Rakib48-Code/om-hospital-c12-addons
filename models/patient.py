@@ -45,3 +45,16 @@ class HospitalPatient(models.Model):
         for rec in self:
             if rec.patient_age == 0:
                 raise ValidationError(_('The age must be greater than zero!'))
+
+    # smart button action type object
+    @api.multi
+    def open_patient_appointment(self):
+        return {
+            'name': _('Appointments'),
+            'domain': [('patient_id', '=', self.id)],
+            'view_type': 'form',
+            'res_model': 'hospital.appointment',
+            'view_mode' : 'tree,form',
+            'view_id': False,
+            'type': 'ir.actions.act_window',
+        }
