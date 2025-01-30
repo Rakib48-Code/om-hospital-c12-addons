@@ -21,6 +21,7 @@ class HospitalPatient(models.Model):
     ], string='Age Group', compute='set_age_group')
     image = fields.Binary(string='Image')
     email_id = fields.Char(string='Email', track_visibility='always')
+    appointment_count = fields.Integer(string='Appointments', compute='get_appointment_count')
 
     sl_no = fields.Char(string='Patient ID', required=True, copy=False, readonly=True, default=lambda self: _('New'))
 
@@ -58,3 +59,8 @@ class HospitalPatient(models.Model):
             'view_id': False,
             'type': 'ir.actions.act_window',
         }
+
+    # count appointment
+    def get_appointment_count(self):
+        count = self.env['hospital.appointment'].search_count([('patient_id', '=', self.id)])
+        self.appointment_count = count
