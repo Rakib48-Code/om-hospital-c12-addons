@@ -21,6 +21,9 @@
         'views/patient_view.xml',
         'views/appointment_view.xml',
         'views/inherit_sales_module.xml',
+
+        # reports
+        'reports/report.xml',
     ],
     'demo': [],
     'installable': True,
