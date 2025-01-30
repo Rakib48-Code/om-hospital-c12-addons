@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <!--   <smart button action/>-->
+    <record id="open_patient_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('patient_id', '=', active_id)]</field>
+    </record>
+
+
 
     <record id="patient_form_view" model="ir.ui.view">
         <field name="name">hospital.patient.form</field>
@@ -8,6 +18,13 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(open_patient_appointment)d" type="action" class="oe_stat_button"
+                                icon="fa-globe">
+                            <field name="appointment_count" widget="statinfo"/>
+                        </button>
+                    </div>
+
                     <div class="oe_button_box" name="button_box">
                         <button name="open_patient_appointment" type="object" class="oe_stat_button" icon="fa-calendar">
                             <field name="appointment_count" widget="statinfo"/>
