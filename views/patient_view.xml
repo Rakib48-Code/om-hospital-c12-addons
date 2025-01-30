@@ -48,6 +48,14 @@
                             <field name="email_id"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Prescription">
+
+                        </page>
+                        <page string="Pharmacy">
+
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
