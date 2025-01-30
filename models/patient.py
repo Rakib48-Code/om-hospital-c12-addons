@@ -7,6 +7,7 @@ class HospitalPatient(models.Model):
     _description = 'Hospital Patient Record'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'patient_name'
+    _order = 'id desc'
 
     patient_name = fields.Char(string='Name', required=True, track_visibility='always')
     patient_age = fields.Integer(string='Age', track_visibility='always')
