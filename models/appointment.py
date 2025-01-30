@@ -20,7 +20,7 @@ class HospitalAppointment(models.Model):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('confirm', 'Confirmed'),
-        ('done', 'Done'),
+        ('approve', 'Approved'),
         ('canceled', 'Canceled')
     ], 'Status', default='draft',)
 
@@ -28,3 +28,17 @@ class HospitalAppointment(models.Model):
     patient_age = fields.Integer(string='Age', related='patient_id.patient_age')
     notes = fields.Text(string='Registration Notes', )
     appointment_date = fields.Date(string='Appointment Date')
+
+
+    def action_confirm(self):
+        for rec in self:
+            rec.state = 'confirm'
+
+
+    def action_approve(self):
+        for rec in self:
+            rec.state = 'approve'
+
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'canceled'
