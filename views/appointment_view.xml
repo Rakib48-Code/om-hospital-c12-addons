@@ -36,9 +36,17 @@
                         <page string="Doctor Prescription">
                             <field name="appointment_lines">
                                 <tree editable="bottom">
-                                    <field name="product_id"/>
+                                    <field name="product_id" string="Medicine"/>
                                     <field name="product_qty"/>
                                 </tree>
+                                <form>
+                                    <group>
+                                        <field name="product_id" string="Medicine"/>
+                                    </group>
+                                    <group>
+                                        <field name="product_qty"/>
+                                    </group>
+                                </form>
                             </field>
                         </page>
                         <page string="Pharmacy">
