@@ -11,6 +11,7 @@
     'data': [
         # security
         'security/ir.model.access.csv',
+        'security/security.xml',
 
         # data
         'data/patient_sequence.xml',

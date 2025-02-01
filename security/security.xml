@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record model="ir.module.category" id="module_hospital_category">
+        <field name="name">Hospital Management</field>
+        <field name="description">Category For Hospital</field>
+        <field name="sequence">16</field>
+    </record>
+
+    <record id="group_hospital_doctor" model="res.groups">
+        <field name="name">Doctor</field>
+        <field name="category_id" ref="module_hospital_category"/>
+    </record>
+
+    <record id="group_hospital_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_hospital_category"/>
+        
+        <!--<doctor group er sob access pabe/>-->
+        <field name="implied_ids" eval="[(4, ref('group_hospital_doctor'))]"/>
+    </record>
+
+    <record id="patient_record_rule" model="ir.rule">
+        <field name="name">Doctor: See only his patient</field>
+        <field name="model_id" ref="model_hospital_patient"/>
+        <field name="groups" eval="[(4, ref('group_hospital_doctor'))]"/>
+        <field name="domain_force">[('doctor_id.user_id','=',user.id)]</field>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="False"/>
+    </record>
+
+
+</odoo>
