@@ -19,3 +19,8 @@ class CreateAppointment(models.TransientModel):
 
         # self.env[modelname (jei model table a store hbe]
         self.env['hospital.appointment'].create(vals)
+
+    def get_data(self):
+        # appointment_var = self.env['hospital.appointment'].search([])
+        appointment_var = self.env['hospital.appointment'].search_count([])
+        print(appointment_var)
