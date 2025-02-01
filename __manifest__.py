@@ -17,6 +17,7 @@
         'data/appointment_sequence.xml',
         'data/data_file.xml',
         'data/doctor_data.xml',
+        'data/patient_reference.xml',
 
         # views
         'views/menu.xml',

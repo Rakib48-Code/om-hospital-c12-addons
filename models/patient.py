@@ -12,7 +12,6 @@ class HospitalPatient(models.Model):
     patient_name = fields.Char(string='Name', required=True, track_visibility='always')
     patient_age = fields.Integer(string='Age', track_visibility='always')
     contact = fields.Char(string='Contact')
-    ref = fields.Char(string='Reference')
     gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female'),
@@ -31,6 +30,7 @@ class HospitalPatient(models.Model):
     check_up_date = fields.Date(string='Checkup Date')
 
     sl_no = fields.Char(string='Patient ID', required=True, copy=False, readonly=True, default=lambda self: _('New'))
+    ref = fields.Char(string='Reference', required=True, copy=False, readonly=True, default=lambda self: _('New'))
 
     @api.depends('patient_age')
     def set_age_group(self):
@@ -45,6 +45,8 @@ class HospitalPatient(models.Model):
     def create(self, vals):
         if vals.get('sl_no', _('New')) == _('New'):
             vals['sl_no'] = self.env['ir.sequence'].next_by_code('hospital.patient') or _('New')
+        if vals.get('ref', _('New')) == _('New'):
+            vals['ref'] = self.env['ir.sequence'].next_by_code('patient.ref') or _('New')
         res = super(HospitalPatient, self).create(vals)
         return res
 
@@ -62,7 +64,7 @@ class HospitalPatient(models.Model):
             'domain': [('patient_id', '=', self.id)],
             'view_type': 'form',
             'res_model': 'hospital.appointment',
-            'view_mode' : 'tree,form',
+            'view_mode': 'tree,form',
             'view_id': False,
             'type': 'ir.actions.act_window',
         }
