@@ -29,6 +29,9 @@ class HospitalAppointment(models.Model):
     notes = fields.Text(string='Registration Notes', )
     appointment_date = fields.Date(string='Appointment Date')
 
+    # one2many fields
+    appointment_lines = fields.One2many('hospital.appointment.line','appointment_id', string='Appointment Lines')
+
 
     def action_confirm(self):
         for rec in self:
@@ -42,3 +45,11 @@ class HospitalAppointment(models.Model):
     def action_cancel(self):
         for rec in self:
             rec.state = 'canceled'
+
+class HospitalAppointmentLines(models.Model):
+    _name = 'hospital.appointment.line'
+    _description = 'Hospital Appointment Lines'
+
+    product_id = fields.Many2one('product.product', string='Product')
+    product_qty = fields.Integer(string='Product Quantity')
+    appointment_id = fields.Many2one('hospital.appointment', string='Appointment ID')
