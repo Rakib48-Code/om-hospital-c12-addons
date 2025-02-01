@@ -72,8 +72,8 @@
                 <field name="name"/>
                 <field name="patient_id"/>
                 <field name="patient_age"/>
-                <field name="appointment_date"/>
                 <field name="notes"/>
+                <field name="appointment_date"/>
                 <field name="state"/>
             </tree>
         </field>

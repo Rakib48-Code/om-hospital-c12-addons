@@ -36,6 +36,16 @@ class HospitalPatient(models.Model):
     sl_no = fields.Char(string='Patient ID', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     ref = fields.Char(string='Reference', required=True, copy=False, readonly=True, default=lambda self: _('New'))
 
+    # name get function
+    @api.multi
+    def name_get(self):
+        result = []
+        for record in self:
+            result.append((record.id, '%s %s' % (record.sl_no, record.patient_name)))
+        return result
+
+
+
     @api.onchange('doctor_id')
     def set_doctor_gender(self):
         for rec in self:
