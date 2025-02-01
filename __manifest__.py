@@ -20,12 +20,17 @@
         'data/doctor_data.xml',
         'data/patient_reference.xml',
 
+        # wizard
+        'wizards/create_appointment_wizard.xml',
+
         # views
         'views/menu.xml',
         'views/patient_view.xml',
         'views/appointment_view.xml',
         'views/inherit_sales_module.xml',
         'views/doctor_view.xml',
+
+
 
         # reports
         'reports/paitent_card_template.xml',
