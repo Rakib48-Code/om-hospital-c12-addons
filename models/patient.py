@@ -102,3 +102,4 @@ class HospitalPatient(models.Model):
         print('Send Email')
         template_id = self.env.ref('om_hospital.patient_card_email_template').id
         self.env['mail.template'].browse(template_id).send_mail(self.id, force_send=True)
+

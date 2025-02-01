@@ -14,6 +14,8 @@ class CreateAppointment(models.TransientModel):
             'patient_id' : self.patient_id.id,
             'appointment_date' : self.appointment_date
         }
+        # message post
+        self.patient_id.message_post(body="Appointment Created Successfully", subtype="Appointments")
 
         # self.env[modelname (jei model table a store hbe]
         self.env['hospital.appointment'].create(vals)
