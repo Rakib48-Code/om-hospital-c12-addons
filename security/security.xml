@@ -15,7 +15,6 @@
     <record id="group_hospital_manager" model="res.groups">
         <field name="name">Manager</field>
         <field name="category_id" ref="module_hospital_category"/>
-        
         <!--<doctor group er sob access pabe/>-->
         <field name="implied_ids" eval="[(4, ref('group_hospital_doctor'))]"/>
     </record>
@@ -29,6 +28,18 @@
         <field name="perm_write" eval="True"/>
         <field name="perm_read" eval="True"/>
         <field name="perm_create" eval="False"/>
+    </record>
+
+    <!--<manager group record rules/>-->
+    <record id="patient_manager_rule" model="ir.rule">
+        <field name="name">Manager: See All Patient</field>
+        <field name="model_id" ref="model_hospital_patient"/>
+        <field name="groups" eval="[(4, ref('group_hospital_manager'))]"/>
+        <field name="domain_force">[]</field>
+        <!--<field name="perm_unlink" eval="True"/>-->
+        <!--<field name="perm_write" eval="True"/>-->
+        <!--<field name="perm_read" eval="True"/>-->
+        <!--<field name="perm_create" eval="False"/>-->
     </record>
 
 
