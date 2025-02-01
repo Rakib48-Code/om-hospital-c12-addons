@@ -21,9 +21,11 @@
                         <br/>
                         <br/>
                         Age : ${object.patient_age}
-                        <br></br>
+                        <br/>
+                        <br/>
                         Contact : ${object.contact}
-                        <br></br>
+                        <br/>
+                        <br/>
                         Gender : ${object.gender}
                         <br/>
                         <br/>

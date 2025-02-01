@@ -95,3 +95,10 @@ class HospitalPatient(models.Model):
     def get_appointment_count(self):
         count = self.env['hospital.appointment'].search_count([('patient_id', '=', self.id)])
         self.appointment_count = count
+
+
+    # send email with button action
+    def action_send_email(self):
+        print('Send Email')
+        template_id = self.env.ref('om_hospital.patient_card_email_template').id
+        self.env['mail.template'].browse(template_id).send_mail(self.id, force_send=True)
