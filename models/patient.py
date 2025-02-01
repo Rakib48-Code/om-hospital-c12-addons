@@ -27,10 +27,21 @@ class HospitalPatient(models.Model):
     appointment_count = fields.Integer(string='Appointments', compute='get_appointment_count')
     active = fields.Boolean('Active', default=True)
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor')
+    doctor_gender = fields.Selection([
+        ('male', 'Male'),
+        ('female', 'Female'),
+    ], string='Gender')
     check_up_date = fields.Date(string='Checkup Date')
 
     sl_no = fields.Char(string='Patient ID', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     ref = fields.Char(string='Reference', required=True, copy=False, readonly=True, default=lambda self: _('New'))
+
+    @api.onchange('doctor_id')
+    def set_doctor_gender(self):
+        for rec in self:
+            if rec.doctor_id:
+                rec.doctor_gender = rec.doctor_id.gender
+
 
     @api.depends('patient_age')
     def set_age_group(self):

@@ -57,6 +57,7 @@
                             <field name="age_group"/>
                             <field name="email_id"/>
                             <field name="ref"/>
+                            <field name="doctor_gender"/>
                         </group>
                     </group>
                     <notebook>
