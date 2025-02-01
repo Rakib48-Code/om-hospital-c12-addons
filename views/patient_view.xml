@@ -5,7 +5,7 @@
         <field name="name">Appointments</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.appointment</field>
-        <field name="domain">[]</field>
+        <field name="domain">[('patient_id', '=', active_id)]</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="appointment_tree_view"/>
@@ -64,6 +64,7 @@
                             <field name="gender"/>
                             <field name="contact"/>
                             <field name="doctor_id"/>
+                            <field name="pro"/>
                         </group>
                         <group>
                             <field name="age_group"/>

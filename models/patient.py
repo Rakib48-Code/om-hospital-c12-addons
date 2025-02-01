@@ -32,6 +32,7 @@ class HospitalPatient(models.Model):
         ('female', 'Female'),
     ], string='Gender')
     check_up_date = fields.Date(string='Checkup Date')
+    pro = fields.Many2one('res.users', string='PRO')
 
     sl_no = fields.Char(string='Patient ID', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     ref = fields.Char(string='Reference', required=True, copy=False, readonly=True, default=lambda self: _('New'))

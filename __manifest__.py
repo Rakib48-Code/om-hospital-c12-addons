@@ -19,6 +19,7 @@
         'data/data_file.xml',
         'data/doctor_data.xml',
         'data/patient_reference.xml',
+        'data/mail_template.xml',
 
         # wizard
         'wizards/create_appointment_wizard.xml',

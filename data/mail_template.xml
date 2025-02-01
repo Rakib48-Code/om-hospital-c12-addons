@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <!-- Mail template are declared in a NOUPDATE block
+         so users can freely customize/delete them -->
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="patient_card_email_template" model="mail.template">
+            <field name="name">Patient: Send by patient email</field>
+            <field name="model_id" ref="om_hospital.model_hospital_patient"/>
+            <field name="email_from">${object.pro.email_formatted |safe}</field>
+            <field name="email_to">${object.email_id}</field>
+            <field name="subject">Patient card (Ref ${object.ref})</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear ${object.patient_name}
+                        <br/>
+                        <br/>
+                        Here is your patient card with reference ${object.ref}
+                        <br/>
+                        <br/>
+                        Age : ${object.patient_age}
+                        <br></br>
+                        Contact : ${object.contact}
+                        <br></br>
+                        Gender : ${object.gender}
+                        <br/>
+                        <br/>
+                        Do not hesitate to contact us if you have any question.
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="report_patient_card"/>
+            <field name="report_name">Patient Card_{(object.ref)}</field>
+        </record>
+    </data>
+</odoo>
