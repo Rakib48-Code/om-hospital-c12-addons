@@ -63,7 +63,7 @@
                         <group>
                             <field name="patient_age"/>
                             <field name="gender"/>
-                            <field name="contact"/>
+                            <field name="contact" groups="om_hospital.group_hospital_manager"/>
                             <field name="doctor_id"/>
                             <field name="pro"/>
                         </group>
