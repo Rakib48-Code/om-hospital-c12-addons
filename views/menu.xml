@@ -20,4 +20,10 @@
               parent="menu_hospital_root"
               sequence="2"/>
 
+    <menuitem id="wizard_create_appointment"
+              name="Create Appointment"
+              parent="menu_hospital_root"
+              action="create_appointment_wizard"
+              sequence="3"/>
+
 </odoo>
