@@ -20,6 +20,7 @@
         'data/doctor_data.xml',
         'data/patient_reference.xml',
         'data/mail_template.xml',
+        'data/patient_cron.xml',
 
         # wizard
         'wizards/create_appointment_wizard.xml',
@@ -30,6 +31,7 @@
         'views/appointment_view.xml',
         'views/inherit_sales_module.xml',
         'views/doctor_view.xml',
+        'views/lab.xml',
 
 
 

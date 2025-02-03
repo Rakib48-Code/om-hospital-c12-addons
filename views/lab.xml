@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="lab_tree_view" model="ir.ui.view">
+        <field name="name">hospital.lab.tree</field>
+        <field name="model">hospital.lab</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="lab_form_view" model="ir.ui.view">
+        <field name="name">hospital.lab</field>
+        <field name="model">hospital.lab</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_lab_menu" model="ir.actions.act_window">
+        <field name="name">Lab</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.lab</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            <!-- Add Text Here -->
+              Add new lab Test
+          </p>
+        </field>
+    </record>
+
+
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="menu_lab" name="Lab" parent="menu_hospital_root" action="action_lab_menu" sequence="4"/>
+
+</odoo>

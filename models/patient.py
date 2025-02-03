@@ -103,3 +103,19 @@ class HospitalPatient(models.Model):
         template_id = self.env.ref('om_hospital.patient_card_email_template').id
         self.env['mail.template'].browse(template_id).send_mail(self.id, force_send=True)
 
+
+    # # cron job python code execution
+    # @api.model
+    # def patient_cron_job(self):
+    #     ''' This method is called from a cron job. '''
+    #     records = self.search([
+    #         ('state', '=', 'posted'),
+    #         ('auto_reverse', '=', True),
+    #         ('reverse_date', '<=', fields.Date.today()),
+    #         ('reverse_entry_id', '=', False)])
+    #     for move in records:
+    #         date = None
+    #         company = move.company_id or self.env.user.company_id
+    #         if move.reverse_date and (not company.period_lock_date or move.reverse_date > company.period_lock_date):
+    #             date = move.reverse_date
+    #         move.reverse_moves(date=date, auto=True)

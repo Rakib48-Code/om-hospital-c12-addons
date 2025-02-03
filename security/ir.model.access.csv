@@ -5,3 +5,4 @@ access_hospital_appointment_lines,hospital.appointment.lines,model_hospital_appo
 access_inherit_sales_module,inherit.sale.module,model_sale_order,,1,1,1,1
 access_inherit_res_partner,inherit.res.partner,model_res_partner,,1,1,1,1
 access_hospital_doctor,hospital.doctor,model_hospital_doctor,,1,1,1,1
+access_hospital_lab,hospital.lab,model_hospital_lab,,1,1,1,1
